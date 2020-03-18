@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t zeldocarina/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true zeldocarina/docker-react npm run test
